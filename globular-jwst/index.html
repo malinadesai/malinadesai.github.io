@@ -16,8 +16,8 @@
   --text-faint:#5b6379;
   --accent:#d4a24e;
   --accent-soft:rgba(212,162,78,0.14);
-  --confirmed:#45c19a;
-  --confirmed-soft:rgba(69,193,154,0.14);
+  --available:#45c19a;
+  --available-soft:rgba(69,193,154,0.14);
   --scheduled:#6ea0f2;
   --scheduled-soft:rgba(110,160,242,0.14);
   --none:#4b5468;
@@ -37,8 +37,8 @@
     --text-faint:#9a9fab;
     --accent:#93661d;
     --accent-soft:rgba(147,102,29,0.10);
-    --confirmed:#1c8265;
-    --confirmed-soft:rgba(28,130,101,0.10);
+    --available:#1c8265;
+    --available-soft:rgba(28,130,101,0.10);
     --scheduled:#2c58ab;
     --scheduled-soft:rgba(44,88,171,0.10);
     --none:#8b91a0;
@@ -50,7 +50,7 @@
   --bg:#0b0e16; --surface:#131826; --surface-2:#1a2032; --border:#232a3d;
   --text:#e8ecf4; --text-dim:#8b93a7; --text-faint:#5b6379;
   --accent:#d4a24e; --accent-soft:rgba(212,162,78,0.14);
-  --confirmed:#45c19a; --confirmed-soft:rgba(69,193,154,0.14);
+  --available:#45c19a; --available-soft:rgba(69,193,154,0.14);
   --scheduled:#6ea0f2; --scheduled-soft:rgba(110,160,242,0.14);
   --none:#4b5468; --none-soft:rgba(75,84,104,0.12);
   --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px -12px rgba(0,0,0,0.6);
@@ -59,7 +59,7 @@
   --bg:#f6f4ef; --surface:#ffffff; --surface-2:#f0eee6; --border:#ded9cc;
   --text:#1c2029; --text-dim:#5f6674; --text-faint:#9a9fab;
   --accent:#93661d; --accent-soft:rgba(147,102,29,0.10);
-  --confirmed:#1c8265; --confirmed-soft:rgba(28,130,101,0.10);
+  --available:#1c8265; --available-soft:rgba(28,130,101,0.10);
   --scheduled:#2c58ab; --scheduled-soft:rgba(44,88,171,0.10);
   --none:#8b91a0; --none-soft:rgba(139,145,160,0.10);
   --shadow: 0 1px 2px rgba(20,20,10,0.06), 0 8px 24px -14px rgba(20,20,10,0.25);
@@ -142,7 +142,7 @@ h1{
   margin-top:8px;
   letter-spacing:0.02em;
 }
-.stat.confirmed .n{color:var(--confirmed);}
+.stat.available .n{color:var(--available);}
 .stat.scheduled .n{color:var(--scheduled);}
 .stat.none .n{color:var(--text-faint);}
 
@@ -194,7 +194,7 @@ h1{
 }
 .chip:hover{border-color:var(--text-faint);color:var(--text);}
 .chip.active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);}
-.chip[data-f="available"].active{background:var(--confirmed-soft);border-color:var(--confirmed);color:var(--confirmed);}
+.chip[data-f="available"].active{background:var(--available-soft);border-color:var(--available);color:var(--available);}
 .chip[data-f="scheduled"].active{background:var(--scheduled-soft);border-color:var(--scheduled);color:var(--scheduled);}
 
 /* ---- list ---- */
@@ -213,7 +213,7 @@ h1{
   overflow:hidden;
   transition:border-color .15s ease;
 }
-.row[data-status="available"]{border-left-color:var(--confirmed);}
+.row[data-status="available"]{border-left-color:var(--available);}
 .row[data-status="scheduled"]{border-left-color:var(--scheduled);}
 .row-head{
   display:grid;
@@ -242,7 +242,7 @@ h1{
   white-space:nowrap;
   justify-self:start;
 }
-.pill.confirmed{background:var(--confirmed-soft);color:var(--confirmed);}
+.pill.available{background:var(--available-soft);color:var(--available);}
 .pill.scheduled{background:var(--scheduled-soft);color:var(--scheduled);}
 .pill.none{background:var(--none-soft);color:var(--text-faint);}
 .filters-preview{
@@ -304,7 +304,7 @@ h1{
   white-space:nowrap;
   height:fit-content;
 }
-.program.is-confirmed .badge{background:var(--confirmed-soft);color:var(--confirmed);}
+.program.is-available .badge{background:var(--available-soft);color:var(--available);}
 .program.is-scheduled .badge{background:var(--scheduled-soft);color:var(--scheduled);}
 .program .title{color:var(--text);line-height:1.4;}
 .program .meta{
@@ -387,7 +387,7 @@ a{color:inherit;}
     </div>
     <div class="chips" id="chips">
       <div class="chip active" data-f="has-data">has JWST data</div>
-      <div class="chip" data-f="available">confirmed only</div>
+      <div class="chip" data-f="available">available only</div>
       <div class="chip" data-f="scheduled">scheduled only</div>
       <div class="chip" data-f="all">all 157</div>
     </div>
@@ -400,7 +400,7 @@ a{color:inherit;}
 </div>
 
 <footer>
-  <div>Data pulled from MAST via <code>astroquery.mast.Observations</code>. &ldquo;Confirmed&rdquo; = proposal has at least one executed, calibrated exposure (calib_level &ne; &minus;1). &ldquo;Scheduled&rdquo; = proposal is approved and visible in MAST but has not yet been observed &mdash; treat these as planned, not archival, data.</div>
+  <div>Data pulled from MAST via <code>astroquery.mast.Observations</code>. &ldquo;available&rdquo; = proposal has at least one executed, calibrated exposure (calib_level &ne; &minus;1). &ldquo;Scheduled&rdquo; = proposal is approved and visible in MAST but has not yet been observed &mdash; treat these as planned, not archival, data.</div>
   <div style="margin-top:6px;">Proposal links go to STScI's public <code>jwst-program-info</code> pages (title, PI, abstract, status).</div>
 </footer>
 
@@ -409,14 +409,14 @@ a{color:inherit;}
 const DATA = JSON.parse(document.getElementById('gc-data').textContent);
 
 const stats = {
-  confirmed: DATA.filter(d => d.status === 'available').length,
+  available: DATA.filter(d => d.status === 'available').length,
   scheduled: DATA.filter(d => d.status === 'scheduled').length,
   none: DATA.filter(d => d.status === 'none').length,
   total: DATA.length,
 };
 
 document.getElementById('stats').innerHTML = `
-  <div class="stat confirmed"><div class="n">${stats.confirmed}</div><div class="l">confirmed archival</div></div>
+  <div class="stat available"><div class="n">${stats.available}</div><div class="l">available archival</div></div>
   <div class="stat scheduled"><div class="n">${stats.scheduled}</div><div class="l">scheduled, not yet observed</div></div>
   <div class="stat none"><div class="n">${stats.none}</div><div class="l">no JWST coverage</div></div>
   <div class="stat"><div class="n">${stats.total}</div><div class="l">total MW globulars (Harris 2010)</div></div>
@@ -429,14 +429,14 @@ function escapeHtml(s){
 function rowHTML(d){
   const filtPreview = d.filters.length ? d.filters.join(', ') : (d.status === 'scheduled' ? 'scheduled &mdash; no exposures taken yet' : '&mdash;');
   const propTags = [
-    ...d.confirmed.map(p => `<span class="prop-tag">${p.id}</span>`),
+    ...d.available.map(p => `<span class="prop-tag">${p.id}</span>`),
     ...d.scheduled.map(p => `<span class="prop-tag sched">${p.id}&#9733;</span>`),
   ].join('');
 
   const programs = [
-    ...d.confirmed.map(p => `
-      <div class="program is-confirmed">
-        <div class="badge">confirmed</div>
+    ...d.available.map(p => `
+      <div class="program is-available">
+        <div class="badge">available</div>
         <div>
           <div class="title">${escapeHtml(p.title || 'Untitled program')}</div>
           <div class="meta">
@@ -470,7 +470,7 @@ function rowHTML(d){
     : `<div class="empty-note">No JWST observations found within 6&prime; of this cluster's catalog position.</div>`;
 
   return `
-    <div class="row" data-status="${d.status}" data-name="${escapeHtml(d.display.toLowerCase())}" data-props="${[...d.confirmed, ...d.scheduled].map(p=>p.id).join(' ')}">
+    <div class="row" data-status="${d.status}" data-name="${escapeHtml(d.display.toLowerCase())}" data-props="${[...d.available, ...d.scheduled].map(p=>p.id).join(' ')}">
       <div class="row-head" onclick="this.parentElement.classList.toggle('open')">
         <div>
           <div class="cl-name">${escapeHtml(d.display)}</div>
@@ -494,7 +494,7 @@ let query = '';
 function passesFilter(d){
   if(activeFilter === 'all') return true;
   if(activeFilter === 'has-data') return d.status !== 'none';
-  if(activeFilter === 'confirmed') return d.status === 'confirmed';
+  if(activeFilter === 'available') return d.status === 'available';
   if(activeFilter === 'scheduled') return d.status === 'scheduled';
   return true;
 }
@@ -504,7 +504,7 @@ function render(){
   const rows = DATA.filter(d => {
     if(!passesFilter(d)) return false;
     if(!q) return true;
-    const propIds = [...d.confirmed, ...d.scheduled].map(p=>p.id).join(' ');
+    const propIds = [...d.available, ...d.scheduled].map(p=>p.id).join(' ');
     return d.display.toLowerCase().includes(q) || propIds.includes(q);
   });
 
